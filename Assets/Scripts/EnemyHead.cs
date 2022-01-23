@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyHead : MonoBehaviour
 {
     public EnemyController enemy;
+    PlayerController player;
+
+    private void OnEnable()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
     void Start()
     {
 
@@ -18,6 +24,10 @@ public class EnemyHead : MonoBehaviour
 
     private void OnMouseDown()
     {
-        enemy.TakeDamage(Random.Range(65, 100));
+        if (player.pistolAmmo > 0)
+        {
+            enemy.TakeDamage(Random.Range(65, 100));
+        }
+        
     }
 }
