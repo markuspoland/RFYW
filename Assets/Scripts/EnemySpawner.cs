@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject enemy;
+    public bool isSpawned { get; set; } = false;
     void Start()
     {
-        
+        InvokeRepeating("SpawnEnemy", Random.Range(2, 10), Random.Range(10, 20));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void SpawnEnemy()
+    {
+        if (!isSpawned)
+        {
+            enemy.SetActive(true);
+            isSpawned = true;
+        }
     }
 }

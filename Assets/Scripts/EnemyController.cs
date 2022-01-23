@@ -5,13 +5,17 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     float timer;
+    int health;
     public enum EnemySide { Right, Left }
 
     public EnemySide enemySide;
+    public EnemySpawner enemySpawner;
 
     private void OnEnable()
     {
+        transform.position = enemySpawner.transform.position;
         timer = 1f;
+        health = 100;
     }
     void Start()
     {
@@ -33,6 +37,24 @@ public class EnemyController : MonoBehaviour
             {
                 transform.Translate(Vector3.right * 3f * Time.deltaTime);
             }
+        }
+    }
+
+    private void OnDisable()
+    {
+        
+        
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            enemySpawner.isSpawned = false;
+            gameObject.SetActive(false);
+            
         }
     }
 
