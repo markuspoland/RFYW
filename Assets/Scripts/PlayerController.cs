@@ -22,9 +22,12 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI ammoCount;
     public TextMeshProUGUI healthAmount;
 
+    public GameObject reloadingTextObject;
+
     public bool isReloading;
     void Start()
     {
+        reloadingTextObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         isReloading = false;
         pistolAmmo = pistolMaxAmmo;
@@ -65,9 +68,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Reload()
     {
+        reloadingTextObject.SetActive(true);
         isReloading = true;
         audioSource.PlayOneShot(reloadGun);
         yield return new WaitForSeconds(reloadTime);
+        reloadingTextObject.SetActive(false);
         isReloading = false;
         pistolAmmo += pistolMaxAmmo;
         magazineAmmo -= 5; 

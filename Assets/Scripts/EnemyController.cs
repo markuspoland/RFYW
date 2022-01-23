@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour
 
     Vector3 GetPosition()
     {
-        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, body.position.z + 22));
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, body.position.z + 21));
     }
 
 }
