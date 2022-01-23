@@ -19,25 +19,40 @@ public class PlayerController : MonoBehaviour
     public AudioClip emptyGun;
     public AudioClip reloadGun;
 
+    public AudioClip ammoPickup;
+    public AudioClip healthPickup;
+
     public TextMeshProUGUI ammoCount;
     public TextMeshProUGUI healthAmount;
 
     public GameObject reloadingTextObject;
+    public GameObject dmgScreen;
+    public GameObject gameOver;
+    public CrosshairScript crosshair;
 
     public bool isReloading;
+    public bool playerDead;
     void Start()
     {
+        playerDead = false;
+        dmgScreen.SetActive(false);
         reloadingTextObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         isReloading = false;
         pistolAmmo = pistolMaxAmmo;
         magazineAmmo = 20;
         health = 100;
+        crosshair = FindObjectOfType<CrosshairScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerDead)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0) && pistolAmmo > 0 && !isReloading)
         {
             Shoot();
@@ -81,11 +96,50 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        StartCoroutine(GetHit());
 
         if (health <= 0)
         {
-            health = 0;
+            Die();
         }
 
+    }
+
+    void Die()
+    {
+        playerDead = true;
+        health = 0;
+        gameOver.SetActive(true);
+        crosshair.gameObject.SetActive(false);
+        dmgScreen.SetActive(false);
+    }
+
+    public void AddAmmo(int ammoToAdd)
+    {
+        magazineAmmo += ammoToAdd;
+        audioSource.PlayOneShot(ammoPickup);
+
+        if (magazineAmmo > 150)
+        {
+            magazineAmmo = 150;
+        }
+    }
+
+    public void AddHealth(int healthAmount)
+    {
+        health += healthAmount;
+        audioSource.PlayOneShot(healthPickup);
+
+        if (health > 100)
+        {
+            health = 100;
+        }
+    }
+
+    IEnumerator GetHit()
+    {
+        dmgScreen.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        dmgScreen.SetActive(false);
     }
 }

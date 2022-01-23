@@ -23,7 +23,7 @@ public class EnemyBody : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (player.pistolAmmo > 0)
+        if (player.pistolAmmo > 0 && !player.playerDead)
         {
             enemy.TakeDamage(Random.Range(25, 35));
         }

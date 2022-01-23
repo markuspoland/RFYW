@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public bool isSpawned { get; set; } = false;
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", Random.Range(2, 10), Random.Range(10, 20));
+        InvokeRepeating("SpawnEnemy", Random.Range(2, 10), Random.Range(3, 15));
     }
 
     // Update is called once per frame

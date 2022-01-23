@@ -24,7 +24,7 @@ public class EnemyHead : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (player.pistolAmmo > 0)
+        if (player.pistolAmmo > 0 && !player.playerDead)
         {
             enemy.TakeDamage(Random.Range(65, 100));
         }

@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
     public void ShootPlayer()
     {
         audioSource.PlayOneShot(enemyShoot);
-        player.TakeDamage(Random.Range(5, 12));
+        player.TakeDamage(Random.Range(3, 7));
         
         
     }
