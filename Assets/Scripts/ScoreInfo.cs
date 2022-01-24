@@ -8,4 +8,5 @@ public class ScoreInfo
     public const int headshotPts = 20;
     public const int healthPts = 5;
     public const int ammoPts = 5;
+    public const int bombPts = 100;
 }

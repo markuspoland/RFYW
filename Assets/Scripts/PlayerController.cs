@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip emptyGun;
     public AudioClip reloadGun;
 
+    public AudioClip bombSound;
     public AudioClip ammoPickup;
     public AudioClip healthPickup;
 
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Die()
+    public void Die()
     {
         playerDead = true;
         health = 0;
@@ -141,5 +142,10 @@ public class PlayerController : MonoBehaviour
         dmgScreen.SetActive(true);
         yield return new WaitForSeconds(1f);
         dmgScreen.SetActive(false);
+    }
+
+    public void Explode()
+    {
+        audioSource.PlayOneShot(bombSound);
     }
 }

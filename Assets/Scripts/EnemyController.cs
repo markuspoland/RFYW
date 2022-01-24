@@ -72,7 +72,8 @@ public class EnemyController : MonoBehaviour
         {
             enemySpawner.isSpawned = false;
             gameObject.SetActive(false);
-            Instantiate(chunkEffect, GetPosition(), Quaternion.identity);
+            // Instantiate(chunkEffect, GetPosition(), Quaternion.identity);
+            Instantiate(chunkEffect, MyPosition(), Quaternion.identity);
             scoreManager.AddScore(ScoreInfo.killPts);
             
         }
@@ -96,6 +97,12 @@ public class EnemyController : MonoBehaviour
     Vector3 GetPosition()
     {
         return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, body.position.z + 21));
+    }
+
+    Vector3 MyPosition()
+    {
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        return pos;
     }
 
     public int GetHealth()

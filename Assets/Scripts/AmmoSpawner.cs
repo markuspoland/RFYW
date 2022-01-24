@@ -7,7 +7,7 @@ public class AmmoSpawner : MonoBehaviour
     public GameObject ammoBox;
     void Start()
     {
-        InvokeRepeating("SpawnAmmo", Random.Range(5, 50), Random.Range(5, 17));
+        InvokeRepeating("SpawnAmmo", Random.Range(5, 20), Random.Range(5, 17));
     }
 
     // Update is called once per frame
