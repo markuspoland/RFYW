@@ -6,10 +6,12 @@ public class EnemyHead : MonoBehaviour
 {
     public EnemyController enemy;
     PlayerController player;
+    ScoreManager scoreManager;
 
     private void OnEnable()
     {
         player = FindObjectOfType<PlayerController>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
     void Start()
     {
@@ -27,6 +29,11 @@ public class EnemyHead : MonoBehaviour
         if (player.pistolAmmo > 0 && !player.playerDead)
         {
             enemy.TakeDamage(Random.Range(65, 100));
+        }
+
+        if (enemy.GetHealth() <= 0)
+        {
+            scoreManager.AddScore(ScoreInfo.headshotPts);
         }
         
     }

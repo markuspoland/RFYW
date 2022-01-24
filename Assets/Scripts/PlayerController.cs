@@ -48,12 +48,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDead)
-        {
-            return;
-        }
-
-        if (Input.GetMouseButtonDown(0) && pistolAmmo > 0 && !isReloading)
+        
+        if (Input.GetMouseButtonDown(0) && pistolAmmo > 0 && !isReloading && !playerDead)
         {
             Shoot();
         }
@@ -100,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            health = 0;
             Die();
         }
 

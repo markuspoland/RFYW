@@ -6,9 +6,11 @@ public class HealthBoxHandler : MonoBehaviour
 {
     PlayerController player;
     float speed = 3f;
+    ScoreManager scoreManager;
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class HealthBoxHandler : MonoBehaviour
     {
         if (!player.playerDead)
         {
+            scoreManager.AddScore(ScoreInfo.healthPts);
             player.AddHealth(Random.Range(10, 30));
             Destroy(gameObject);
         }

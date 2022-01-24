@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public GameObject[] bloodEffects;
     public GameObject chunkEffect;
     public Transform body;
+    public ScoreManager scoreManager;
 
     PlayerController player;
     AudioSource audioSource;
@@ -72,6 +73,7 @@ public class EnemyController : MonoBehaviour
             enemySpawner.isSpawned = false;
             gameObject.SetActive(false);
             Instantiate(chunkEffect, GetPosition(), Quaternion.identity);
+            scoreManager.AddScore(ScoreInfo.killPts);
             
         }
     }
@@ -94,6 +96,11 @@ public class EnemyController : MonoBehaviour
     Vector3 GetPosition()
     {
         return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, body.position.z + 21));
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
 }

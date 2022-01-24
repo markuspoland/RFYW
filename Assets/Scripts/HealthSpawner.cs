@@ -7,7 +7,7 @@ public class HealthSpawner : MonoBehaviour
     public GameObject healthBox;
     void Start()
     {
-        InvokeRepeating("SpawnHealth", Random.Range(5, 20), Random.Range(2, 20));
+        InvokeRepeating("SpawnHealth", Random.Range(5, 20), Random.Range(8, 20));
     }
 
     // Update is called once per frame

@@ -6,8 +6,10 @@ public class AmmoBoxHandler : MonoBehaviour
 {
     PlayerController player;
     float speed = 3f;
+    ScoreManager scoreManager;
     void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
         player = FindObjectOfType<PlayerController>();
     }
 
@@ -21,6 +23,7 @@ public class AmmoBoxHandler : MonoBehaviour
     {
         if (!player.playerDead)
         {
+            scoreManager.AddScore(ScoreInfo.ammoPts);
             player.AddAmmo(20);
             Destroy(gameObject);
         }
