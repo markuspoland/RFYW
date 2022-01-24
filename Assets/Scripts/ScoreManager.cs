@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreCount;
     public GameObject ptsObject;
     int score;
+       
     void Start()
     {
         score = 0;
@@ -34,5 +35,10 @@ public class ScoreManager : MonoBehaviour
         ptsObject.GetComponent<TextMeshProUGUI>().transform.position = Input.mousePosition;
         yield return new WaitForSeconds(1f);
         ptsObject.SetActive(false);
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }

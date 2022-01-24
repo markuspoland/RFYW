@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartGameButton : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class StartGameButton : MonoBehaviour
     public AudioClip startSound;
 
     public GameObject startPanel;
+
+    public TMP_InputField inputField;
 
     AudioSource audioSource;
     void Start()
@@ -37,6 +40,8 @@ public class StartGameButton : MonoBehaviour
 
         if (gameObject.CompareTag("StartGame"))
         {
+            GameManager.Instance.playerName = inputField.text;
+            Debug.Log(GameManager.Instance.playerName);
             audioSource.PlayOneShot(startSound);
             SceneManager.LoadScene("Level1");
         }

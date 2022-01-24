@@ -4889,6 +4889,7 @@ MonoBehaviour:
   gameOver: {fileID: 233532545}
   restart: {fileID: 971771533}
   crosshair: {fileID: 701063581}
+  scoreManager: {fileID: 951022124}
   isReloading: 0
   playerDead: 0
 --- !u!82 &1710554531
@@ -6181,7 +6182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.99997, y: -12}
+  m_AnchoredPosition: {x: 150, y: -8.153687}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1971408846

@@ -594,6 +594,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150379563}
   m_CullTransparentMesh: 1
+--- !u!1 &516794046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516794048}
+  - component: {fileID: 516794047}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &516794047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516794046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f363741be605bb4491a736168c3d98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  playerName: 
+--- !u!4 &516794048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516794046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 868.87384, y: 814.4223, z: -56.117725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721963949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +2015,7 @@ MonoBehaviour:
   hoverSound: {fileID: 8300000, guid: cf99ef7748722554db279330541f418d, type: 3}
   startSound: {fileID: 8300000, guid: a58ce402b515d3e49b157832b5fe9663, type: 3}
   startPanel: {fileID: 1061357344}
+  inputField: {fileID: 937159388}
 --- !u!82 &1586446014
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2463,6 +2509,7 @@ MonoBehaviour:
   hoverSound: {fileID: 8300000, guid: cf99ef7748722554db279330541f418d, type: 3}
   startSound: {fileID: 8300000, guid: a58ce402b515d3e49b157832b5fe9663, type: 3}
   startPanel: {fileID: 1061357344}
+  inputField: {fileID: 937159388}
 --- !u!114 &1733922403
 MonoBehaviour:
   m_ObjectHideFlags: 0

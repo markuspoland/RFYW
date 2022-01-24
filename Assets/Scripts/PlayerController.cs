@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public GameObject restart;
     public CrosshairScript crosshair;
 
+    public ScoreManager scoreManager;
+
     public bool isReloading;
     public bool playerDead;
     void Start()
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour
         crosshair.isVisible = true;
         crosshair.gameObject.SetActive(false);
         dmgScreen.SetActive(false);
+        GameManager.Instance.score = scoreManager.GetScore();
     }
 
     public void AddAmmo(int ammoToAdd)
