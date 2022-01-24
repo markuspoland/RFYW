@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject reloadingTextObject;
     public GameObject dmgScreen;
     public GameObject gameOver;
+    public GameObject restart;
     public CrosshairScript crosshair;
 
     public bool isReloading;
@@ -107,6 +108,8 @@ public class PlayerController : MonoBehaviour
         playerDead = true;
         health = 0;
         gameOver.SetActive(true);
+        restart.SetActive(true);
+        crosshair.isVisible = true;
         crosshair.gameObject.SetActive(false);
         dmgScreen.SetActive(false);
     }
