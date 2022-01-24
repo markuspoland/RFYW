@@ -7,6 +7,9 @@ public class StartGameButton : MonoBehaviour
 {
     public AudioClip hoverSound;
     public AudioClip startSound;
+
+    public GameObject startPanel;
+
     AudioSource audioSource;
     void Start()
     {
@@ -26,7 +29,17 @@ public class StartGameButton : MonoBehaviour
 
     public void StartGame()
     {
-        audioSource.PlayOneShot(startSound);
-        SceneManager.LoadScene("Level1");
+        if (gameObject.CompareTag("StartPanel"))
+        {
+            audioSource.PlayOneShot(startSound);
+            startPanel.SetActive(true);
+        }
+
+        if (gameObject.CompareTag("StartGame"))
+        {
+            audioSource.PlayOneShot(startSound);
+            SceneManager.LoadScene("Level1");
+        }
+        
     }
 }
