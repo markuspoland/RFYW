@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeaderboardsButton : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class LeaderboardsButton : MonoBehaviour
     public void HoverSound()
     {
         audioSource.PlayOneShot(hoverSound);
+    }
+
+    public void LoadLeaderboards()
+    {
+        SceneManager.LoadScene("Boards");
     }
 }

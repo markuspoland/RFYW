@@ -41,6 +41,7 @@ public class StartGameButton : MonoBehaviour
         if (gameObject.CompareTag("StartGame"))
         {
             GameManager.Instance.playerName = inputField.text;
+            GameManager.Instance.SetPlayerName();
             Debug.Log(GameManager.Instance.playerName);
             audioSource.PlayOneShot(startSound);
             SceneManager.LoadScene("Level1");

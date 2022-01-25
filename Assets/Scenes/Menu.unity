@@ -208,7 +208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20660391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 20660393}
+        m_TargetAssemblyTypeName: LeaderboardsButton, Assembly-CSharp
+        m_MethodName: LoadLeaderboards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20660391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +637,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   playerName: 
+  testPlayer1: Mietek
+  testPlayer2: Zenek
+  testScore1: 350
+  testScore2: 1500
 --- !u!4 &516794048
 Transform:
   m_ObjectHideFlags: 0

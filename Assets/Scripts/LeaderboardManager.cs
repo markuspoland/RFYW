@@ -14,19 +14,7 @@ public class LeaderboardManager : MonoBehaviour
 
     void Start()
     {
-        LootLockerSDKManager.StartSession(GameManager.Instance.testPlayer1, (response) =>
-        {
-            if (!response.success)
-            {
-                Debug.Log("error starting LootLocker session");
-
-                return;
-            }
-
-            Debug.Log("successfully started LootLocker session");
-        });
-
-        SetName();
+        ShowScores();
     }
 
     // Update is called once per frame
@@ -67,36 +55,5 @@ public class LeaderboardManager : MonoBehaviour
 
         });
     }
-
-    public void SubmitScore()
-    {
-
-        
-        LootLockerSDKManager.SubmitScore(GameManager.Instance.testPlayer1, GameManager.Instance.testScore1, id, (response) =>
-        {
-            if (response.success)
-            {
-                
-            }else
-            {
-                Debug.Log("SCORE NOT SUBMITTED :(");
-            }
-        });
-
-        ShowScores();
-    }
-
-    public void SetName()
-    {
-        LootLockerSDKManager.SetPlayerName(GameManager.Instance.testPlayer1, (response) =>
-        {
-            if (response.success)
-            {
-
-            } else
-            {
-                Debug.Log("Player name not set!");
-            }
-        });
-    }
+    
 }

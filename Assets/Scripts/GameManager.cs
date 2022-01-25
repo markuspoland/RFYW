@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LootLocker.Requests;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour
     public int testScore1 = 350;
     public int testScore2 = 1500;
 
+    int id = 1367;
+
     void Awake()
     {
         if (_instance == null)
@@ -51,7 +55,56 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        InitializeLootLocker();
+    }
+
+    void InitializeLootLocker()
+    {
+        LootLockerSDKManager.StartGuestSession((response) =>
+        {
+            if (!response.success)
+            {
+                Debug.Log("error starting LootLocker session");
+
+                return;
+            }
+
+            Debug.Log("successfully started LootLocker session");
+        });
+
+    }
+
+    public void SetPlayerName()
+    {
+        LootLockerSDKManager.SetPlayerName(playerName, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Player name set!");
+            }
+            else
+            {
+                Debug.Log("Player name not set!");
+            }
+        });
+    }
+
+    public void SubmitScore()
+    {
+
+        LootLockerSDKManager.SubmitScore(playerName, score, id, (response) =>
+        {
+            if (response.success)
+            {
+
+            }
+            else
+            {
+                Debug.Log("SCORE NOT SUBMITTED :(");
+            }
+        });
+
+
     }
 
 }
