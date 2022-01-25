@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     int id = 1367;
 
+    int device_id;
+
     void Awake()
     {
         if (_instance == null)
@@ -55,12 +57,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        device_id = Random.Range(0, 500000);
         InitializeLootLocker();
     }
 
     void InitializeLootLocker()
     {
-        LootLockerSDKManager.StartSession("Player", (response) =>
+        LootLockerSDKManager.StartSession(device_id.ToString(), (response) =>
         {
             if (!response.success)
             {
