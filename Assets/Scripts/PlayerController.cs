@@ -110,7 +110,11 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        playerDead = true;
+        if (playerDead)
+        {
+            return;
+        }
+
         health = 0;
         gameOver.SetActive(true);
         restart.SetActive(true);
@@ -120,7 +124,8 @@ public class PlayerController : MonoBehaviour
         crosshair.gameObject.SetActive(false);
         dmgScreen.SetActive(false);
         GameManager.Instance.score = scoreManager.GetScore();
-        GameManager.Instance.SubmitScore();
+        
+        playerDead = true;
     }
 
     public void AddAmmo(int ammoToAdd)

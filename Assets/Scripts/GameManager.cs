@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     void InitializeLootLocker()
     {
-        LootLockerSDKManager.StartGuestSession((response) =>
+        LootLockerSDKManager.StartSession("Player", (response) =>
         {
             if (!response.success)
             {
