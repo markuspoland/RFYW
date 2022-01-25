@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public GameObject dmgScreen;
     public GameObject gameOver;
     public GameObject restart;
+    public GameObject leaderboards;
+    public GameObject exit;
     public CrosshairScript crosshair;
 
     public ScoreManager scoreManager;
@@ -112,10 +114,13 @@ public class PlayerController : MonoBehaviour
         health = 0;
         gameOver.SetActive(true);
         restart.SetActive(true);
-        crosshair.isVisible = true;
+        leaderboards.SetActive(true);
+        exit.SetActive(true);
+        Cursor.visible = true;
         crosshair.gameObject.SetActive(false);
         dmgScreen.SetActive(false);
         GameManager.Instance.score = scoreManager.GetScore();
+        GameManager.Instance.SubmitScore();
     }
 
     public void AddAmmo(int ammoToAdd)

@@ -7,6 +7,14 @@ public class Music : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
+
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 

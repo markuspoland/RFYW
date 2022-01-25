@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CrosshairScript : MonoBehaviour
 {
-    public bool isVisible;
+    
     void Start()
     {
-        Cursor.visible = isVisible;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
