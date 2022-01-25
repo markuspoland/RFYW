@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     public int score;
     public string playerName;
 
+    public string testPlayer1 = "Mietek";
+    public string testPlayer2 = "Zenek";
+    public int testScore1 = 350;
+    public int testScore2 = 1500;
+
     void Awake()
     {
         if (_instance == null)
@@ -42,6 +47,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
+        
     }
 
 }

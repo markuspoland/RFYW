@@ -45,6 +45,27 @@ public class StartGameButton : MonoBehaviour
             audioSource.PlayOneShot(startSound);
             SceneManager.LoadScene("Level1");
         }
+
+        if (gameObject.CompareTag("MenuButton"))
+        {
+            MenuClick();
+        }
+
+        if (gameObject.CompareTag("ExitButton"))
+        {
+            ExitGame();
+        }
         
     }
+
+    public void MenuClick()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }
