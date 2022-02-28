@@ -9,6 +9,10 @@ TagManager:
   - MenuButton
   - ExitButton
   - music
+  - facebook
+  - instagram
+  - youtube
+  - spotify
   layers:
   - Default
   - TransparentFX

@@ -66,7 +66,7 @@ public class StartGameButton : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Links");
     }
 
 }
