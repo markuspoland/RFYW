@@ -12,11 +12,13 @@ public class StartGameButton : MonoBehaviour
     public GameObject startPanel;
 
     public TMP_InputField inputField;
+    public GameObject enterName;
 
     AudioSource audioSource;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -36,15 +38,22 @@ public class StartGameButton : MonoBehaviour
         {
             audioSource.PlayOneShot(startSound);
             startPanel.SetActive(true);
+            inputField.text = "";
         }
 
         if (gameObject.CompareTag("StartGame"))
         {
-            GameManager.Instance.playerName = inputField.text;
-            GameManager.Instance.SetPlayerName();
-            Debug.Log(GameManager.Instance.playerName);
-            audioSource.PlayOneShot(startSound);
-            SceneManager.LoadScene("Level1");
+            if (inputField.text != null && inputField.text != "")
+            {
+                GameManager.Instance.playerName = inputField.text;
+                GameManager.Instance.SetPlayerName();
+                Debug.Log(GameManager.Instance.playerName);
+                audioSource.PlayOneShot(startSound);
+                SceneManager.LoadScene("Level1");
+            }
+
+            enterName.SetActive(true);
+            
         }
 
         if (gameObject.CompareTag("MenuButton"))
